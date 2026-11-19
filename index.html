@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07111f">
+<title>Mi APK Store</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+ margin:0;
+ min-height:100vh;
+ background:#07111f;
+ color:#eaf6ff;
+ font-family:Arial,sans-serif;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ padding:20px;
+}
+
+.container{
+ width:100%;
+ max-width:480px;
+ text-align:center;
+}
+
+.logo{
+ width:85px;
+ height:85px;
+ border-radius:24px;
+ background:linear-gradient(135deg,#087cff,#00d5ff);
+ display:grid;
+ place-items:center;
+ margin:0 auto 25px;
+ font-size:38px;
+ font-weight:bold;
+ box-shadow:0 0 35px #087cff66;
+}
+
+h1{font-size:30px;margin:10px 0}
+.subtitle{color:#8ca9c5;font-size:14px}
+
+.card{
+ margin-top:35px;
+ padding:28px 22px;
+ border:1px solid #193b5b;
+ border-radius:20px;
+ background:#0c1c2e;
+}
+
+.app-icon{
+ width:75px;
+ height:75px;
+ border-radius:18px;
+ background:#142e49;
+ margin:auto;
+ display:grid;
+ place-items:center;
+ font-size:32px;
+}
+
+.version{
+ color:#00d5ff;
+ font-size:13px;
+ margin:15px 0;
+}
+
+.description{
+ color:#a8bdd1;
+ line-height:1.6;
+ font-size:14px;
+}
+
+.download{
+ display:block;
+ margin-top:25px;
+ padding:17px;
+ background:linear-gradient(90deg,#087cff,#00b9e8);
+ color:white;
+ text-decoration:none;
+ border-radius:12px;
+ font-weight:bold;
+ font-size:16px;
+}
+
+.download:hover{filter:brightness(1.15)}
+
+.note{
+ color:#7892ab;
+ font-size:12px;
+ margin-top:18px;
+}
+
+footer{
+ margin-top:35px;
+ color:#58728c;
+ font-size:12px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+ <div class="logo">APK</div>
+
+ <h1>MI APK STORE</h1>
+ <p class="subtitle">
+  Descarga nuestras aplicaciones para Android
+ </p>
+
+ <div class="card">
+
+  <div class="app-icon">📱</div>
+
+  <h2>Mi aplicación</h2>
+
+  <div class="version">
+   ANDROID · ÚLTIMA VERSIÓN
+  </div>
+
+  <p class="description">
+   Descarga nuestra aplicación directamente
+   en tu dispositivo Android.
+  </p>
+
+  <a id="download" class="download" href="#">
+   DESCARGAR APK
+  </a>
+
+  <p class="note">
+   Archivo APK · Instalación manual en Android
+  </p>
+
+ </div>
+
+ <footer>
+  MI APK STORE · Todos los derechos reservados
+ </footer>
+
+</div>
+
+<script>
+const owner = location.hostname.split(".")[0];
+
+document.getElementById("download").href =
+ "https://github.com/" + owner +
+ "/mi-tienda-apk/releases/latest/download/mi-app.apk";
+</script>
+
+</body>
+</html>
