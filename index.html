@@ -1,156 +1,191 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#07111f">
-<title>Mi APK Store</title>
-
-<style>
-*{box-sizing:border-box}
-
-body{
- margin:0;
- min-height:100vh;
- background:#07111f;
- color:#eaf6ff;
- font-family:Arial,sans-serif;
- display:flex;
- justify-content:center;
- align-items:center;
- padding:20px;
-}
-
-.container{
- width:100%;
- max-width:480px;
- text-align:center;
-}
-
-.logo{
- width:85px;
- height:85px;
- border-radius:24px;
- background:linear-gradient(135deg,#087cff,#00d5ff);
- display:grid;
- place-items:center;
- margin:0 auto 25px;
- font-size:38px;
- font-weight:bold;
- box-shadow:0 0 35px #087cff66;
-}
-
-h1{font-size:30px;margin:10px 0}
-.subtitle{color:#8ca9c5;font-size:14px}
-
-.card{
- margin-top:35px;
- padding:28px 22px;
- border:1px solid #193b5b;
- border-radius:20px;
- background:#0c1c2e;
-}
-
-.app-icon{
- width:75px;
- height:75px;
- border-radius:18px;
- background:#142e49;
- margin:auto;
- display:grid;
- place-items:center;
- font-size:32px;
-}
-
-.version{
- color:#00d5ff;
- font-size:13px;
- margin:15px 0;
-}
-
-.description{
- color:#a8bdd1;
- line-height:1.6;
- font-size:14px;
-}
-
-.download{
- display:block;
- margin-top:25px;
- padding:17px;
- background:linear-gradient(90deg,#087cff,#00b9e8);
- color:white;
- text-decoration:none;
- border-radius:12px;
- font-weight:bold;
- font-size:16px;
-}
-
-.download:hover{filter:brightness(1.15)}
-
-.note{
- color:#7892ab;
- font-size:12px;
- margin-top:18px;
-}
-
-footer{
- margin-top:35px;
- color:#58728c;
- font-size:12px;
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#24180f">
+  <meta name="description" content="Mythic MMO: descubre el mundo, descarga el juego y entra en tu cuenta.">
+  <title>Mythic MMO — Portal oficial</title>
+  <style>
+    :root{
+      --ink:#302114;--muted:#70583b;--paper:#ead8ad;--paper-light:#f6e9c8;
+      --gold:#a77a36;--gold-dark:#68451f;--red:#702d20;--shadow:rgba(40,24,10,.28);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;color:var(--ink);font-family:Georgia,"Times New Roman",serif;
+      background:
+        radial-gradient(ellipse at 50% 0%,rgba(255,249,220,.65),transparent 55%),
+        repeating-linear-gradient(3deg,rgba(89,56,22,.025) 0 1px,transparent 1px 5px),
+        linear-gradient(135deg,#cbb27c,#ead8ad 45%,#c7a978);
+    }
+    a{color:inherit}
+    .page-frame{max-width:1200px;margin:24px auto;padding:14px;border:1px solid #79572d;
+      outline:5px double rgba(104,69,31,.65);background:rgba(248,235,199,.62);
+      box-shadow:0 18px 55px var(--shadow)}
+    header{display:flex;align-items:center;justify-content:space-between;gap:18px;
+      padding:18px 24px;border-bottom:1px solid rgba(104,69,31,.5)}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .crest{width:48px;height:55px;display:grid;place-items:center;color:#f2dfae;
+      background:linear-gradient(145deg,#8d622c,#392619);clip-path:polygon(50% 0,95% 15%,88% 72%,50% 100%,12% 72%,5% 15%);
+      font-size:25px;text-shadow:0 2px 3px #160d08}
+    .brand strong{display:block;font-size:clamp(18px,3vw,26px);letter-spacing:2px}
+    .brand small{display:block;color:var(--muted);font-size:11px;letter-spacing:3px;text-transform:uppercase}
+    nav{display:flex;flex-wrap:wrap;gap:8px}
+    nav a{padding:10px 14px;text-decoration:none;text-transform:uppercase;letter-spacing:1px;
+      font-size:12px;font-weight:bold;border:1px solid transparent}
+    nav a:hover,nav a:focus{border-color:var(--gold);background:rgba(255,248,222,.55)}
+    .hero{position:relative;overflow:hidden;min-height:510px;margin:18px 0 28px;
+      display:grid;grid-template-columns:1.05fr .95fr;align-items:center;
+      border:1px solid #74512b;background:
+      radial-gradient(ellipse at 72% 42%,rgba(232,190,112,.45),transparent 30%),
+      linear-gradient(110deg,rgba(31,23,16,.96),rgba(65,43,25,.88) 48%,rgba(48,32,20,.62)),
+      repeating-linear-gradient(135deg,#49321e 0 2px,#3a291b 2px 5px);
+      color:#f5e7c4}
+    .hero:before,.hero:after{content:"";position:absolute;inset:12px;border:1px solid rgba(220,184,113,.55);pointer-events:none}
+    .hero:after{inset:19px;border:1px solid rgba(220,184,113,.18)}
+    .hero-copy{position:relative;z-index:2;padding:58px 30px 58px 56px}
+    .eyebrow{color:#d6b36f;text-transform:uppercase;letter-spacing:4px;font-size:11px}
+    h1{font-size:clamp(38px,6vw,70px);line-height:.98;margin:18px 0;color:#f4dfae;
+      text-shadow:0 3px 0 #3b2514,0 8px 22px #000}
+    .hero-copy p{max-width:490px;color:#e3d2ad;font-size:17px;line-height:1.65}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+    .button{display:inline-block;padding:13px 20px;text-decoration:none;text-transform:uppercase;
+      letter-spacing:1.4px;font:bold 12px Georgia,serif;border:1px solid #d2ad65;
+      background:linear-gradient(#c59a4f,#8a5d2b);color:#20150c;box-shadow:0 3px 0 #3b2615}
+    .button.secondary{background:transparent;color:#f2dfb6;border-color:#b99a61}
+    .button:hover{filter:brightness(1.12);transform:translateY(-1px)}
+    .hero-art{position:relative;z-index:1;min-height:430px;display:grid;place-items:center;padding:28px}
+    .sigil{width:min(100%,430px);aspect-ratio:1;display:grid;place-items:center;position:relative;
+      border:1px solid rgba(220,184,113,.55);border-radius:50%;
+      background:radial-gradient(circle,rgba(207,163,83,.25),rgba(20,14,10,.1) 60%,transparent 61%)}
+    .sigil:before,.sigil:after{content:"";position:absolute;border:1px solid rgba(218,183,116,.5);border-radius:50%}
+    .sigil:before{inset:8%}.sigil:after{inset:17%;border-style:dashed}
+    .sword{font-size:clamp(125px,22vw,230px);line-height:1;color:#d9b66e;
+      text-shadow:0 4px 0 #56391c,0 12px 30px #000;transform:rotate(-34deg)}
+    .sigil-label{position:absolute;bottom:13%;font-size:11px;letter-spacing:5px;color:#e2c58b}
+    section.content-section{padding:22px 26px 30px;margin:22px 0;border-top:1px solid rgba(104,69,31,.4)}
+    .section-heading{text-align:center;margin:0 0 20px}
+    .section-heading small{color:var(--gold-dark);text-transform:uppercase;letter-spacing:3px}
+    h2{font-size:30px;margin:8px 0 10px}
+    .section-heading p{max-width:650px;margin:0 auto;color:var(--muted);line-height:1.6}
+    .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .tile{padding:22px;background:rgba(255,247,222,.52);border:1px solid rgba(104,69,31,.48);
+      box-shadow:inset 0 0 25px rgba(120,83,36,.08);text-align:center}
+    .tile .symbol{font-size:30px;color:var(--gold-dark)}
+    .tile h3{margin:10px 0 8px;font-size:20px}
+    .tile p{color:var(--muted);font-size:14px;line-height:1.55}
+    .account-panel{max-width:720px;margin:auto;padding:25px;text-align:center;
+      border:1px solid rgba(104,69,31,.55);background:rgba(255,247,222,.58)}
+    .notice{font-size:13px;color:#725735;line-height:1.6}
+    .forum-panel{display:flex;justify-content:space-between;align-items:center;gap:18px;
+      padding:22px;background:rgba(255,247,222,.52);border:1px solid rgba(104,69,31,.48)}
+    footer{text-align:center;padding:22px 12px 14px;border-top:1px solid rgba(104,69,31,.45);
+      color:#70583b;font-size:12px;letter-spacing:1px}
+    @media(max-width:760px){
+      .page-frame{margin:10px;padding:8px}
+      header{align-items:flex-start;flex-direction:column;padding:14px}
+      nav{width:100%}nav a{padding:9px}
+      .hero{grid-template-columns:1fr}
+      .hero-copy{padding:48px 28px 10px}
+      .hero-art{min-height:280px}
+      .sigil{width:260px}
+      .tiles{grid-template-columns:1fr}
+      .forum-panel{align-items:flex-start;flex-direction:column}
+    }
+  </style>
 </head>
-
 <body>
-<div class="container">
+  <div class="page-frame">
+    <header>
+      <a class="brand" href="#inicio" aria-label="Mythic MMO, inicio">
+        <span class="crest" aria-hidden="true">✦</span>
+        <span><strong>MYTHIC MMO</strong><small>Crónicas de un mundo olvidado</small></span>
+      </a>
+      <nav aria-label="Menú principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#descargas">Descargas</a>
+        <a href="#cuenta">Cuenta</a>
+        <a href="#foro">Foro</a>
+      </nav>
+    </header>
 
- <div class="logo">APK</div>
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero-copy">
+          <div class="eyebrow">Un mundo espera por ti</div>
+          <h1>FORJA TU<br>LEYENDA</h1>
+          <p>Explora tierras antiguas, descubre sus secretos y escribe tu propia historia en Mythic MMO.</p>
+          <div class="actions">
+            <a class="button" href="#descargas">Descubrir el juego</a>
+            <a class="button secondary" href="#cuenta">Mi cuenta</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Emblema fantástico de Mythic MMO">
+          <div class="sigil">
+            <div class="sword" aria-hidden="true">⚔</div>
+            <div class="sigil-label">MYTHIC • MMO</div>
+          </div>
+        </div>
+      </section>
 
- <h1>MI APK STORE</h1>
- <p class="subtitle">
-  Descarga nuestras aplicaciones para Android
- </p>
+      <section class="content-section" id="descargas">
+        <div class="section-heading">
+          <small>Prepara tu aventura</small>
+          <h2>Descargas</h2>
+          <p>Descarga el cliente de Mythic MMO y consulta aquí la versión oficial cuando se publique.</p>
+        </div>
+        <div class="tiles">
+          <article class="tile">
+            <div class="symbol" aria-hidden="true">⬇</div>
+            <h3>Cliente Android</h3>
+            <p>La descarga del APK se habilitará cuando se publique una versión en GitHub Releases.</p>
+            <a class="button" href="https://github.com/atheron25/mi-tienda-apk/releases" target="_blank" rel="noopener">Ver versiones</a>
+          </article>
+          <article class="tile">
+            <div class="symbol" aria-hidden="true">✧</div>
+            <h3>Versión del juego</h3>
+            <p>La versión y las notas de actualización se anunciarán junto a cada lanzamiento oficial.</p>
+          </article>
+          <article class="tile">
+            <div class="symbol" aria-hidden="true">盾</div>
+            <h3>Instalación segura</h3>
+            <p>Descarga únicamente desde los enlaces oficiales publicados en este portal.</p>
+          </article>
+        </div>
+      </section>
 
- <div class="card">
+      <section class="content-section" id="cuenta">
+        <div class="section-heading">
+          <small>Tu identidad en el reino</small>
+          <h2>Cuenta de jugador</h2>
+          <p>En el portal podrás consultar tu perfil y los personajes que hayas creado dentro del juego.</p>
+        </div>
+        <div class="account-panel">
+          <h3>Acceso de jugador</h3>
+          <p class="notice">El inicio de sesión con Google y la ficha de personajes todavía requieren configurar la autenticación y conectar el servidor del juego. Este botón es informativo; aún no inicia sesión.</p>
+          <button class="button" type="button" disabled title="La autenticación todavía no está configurada" style="opacity:.55;cursor:not-allowed">Acceso próximamente</button>
+        </div>
+      </section>
 
-  <div class="app-icon">📱</div>
+      <section class="content-section" id="foro">
+        <div class="section-heading">
+          <small>La comunidad</small>
+          <h2>Foro</h2>
+          <p>Un lugar para que los aventureros compartan dudas, ideas y experiencias.</p>
+        </div>
+        <div class="forum-panel">
+          <div>
+            <h3>La comunidad de Mythic MMO</h3>
+            <p class="notice">El foro se habilitará cuando se conecte una plataforma de comunidad.</p>
+          </div>
+          <span class="button secondary" aria-disabled="true" style="opacity:.55;cursor:default">Próximamente</span>
+        </div>
+      </section>
+    </main>
 
-  <h2>Mi aplicación</h2>
-
-  <div class="version">
-   ANDROID · ÚLTIMA VERSIÓN
+    <footer>MYTHIC MMO · Portal oficial · Un mundo, infinitas leyendas</footer>
   </div>
-
-  <p class="description">
-   Descarga nuestra aplicación directamente
-   en tu dispositivo Android.
-  </p>
-
-  <a id="download" class="download" href="#">
-   DESCARGAR APK
-  </a>
-
-  <p class="note">
-   Archivo APK · Instalación manual en Android
-  </p>
-
- </div>
-
- <footer>
-  MI APK STORE · Todos los derechos reservados
- </footer>
-
-</div>
-
-<script>
-const owner = location.hostname.split(".")[0];
-
-document.getElementById("download").href =
- "https://github.com/" + owner +
- "/mi-tienda-apk/releases/latest/download/mi-app.apk";
-</script>
-
 </body>
 </html>
